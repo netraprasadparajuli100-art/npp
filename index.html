@@ -2,197 +2,2518 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Official portfolio of Netra Prasad Parajuli — Civil Sub-Overseer and technical professional.">
-  <meta name="author" content="Netra Prasad Parajuli">
-  <meta property="og:title" content="Netra Prasad Parajuli | Civil Sub-Overseer">
-  <meta property="og:description" content="Professional portfolio, technical experience, education and selected works.">
-  <meta property="og:type" content="website">
-  <title>Netra Prasad Parajuli | Civil Sub-Overseer</title>
-  <link rel="icon" href="images/favicon.png">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="loader" id="loader"><div class="loader-ring"></div><span>Loading portfolio...</span></div>
 
-  <header class="navbar" id="navbar">
-    <a class="brand" href="#home">NP<span>.</span></a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
-    <nav id="navLinks">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Official portfolio of Netra Prasad Parajuli — Civil Sub-Overseer and technical professional.">
+
+  <meta name="author"
+        content="Netra Prasad Parajuli">
+
+  <meta name="theme-color"
+        content="#0d1714">
+
+  <title>Netra Prasad Parajuli | Civil Sub-Overseer</title>
+
+  <style>
+
+    /* =====================================================
+       BASIC RESET
+    ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background: #f4f6f3;
+      color: #101714;
+
+      line-height: 1.6;
+
+      transition:
+        background 0.4s ease,
+        color 0.4s ease;
+    }
+
+    body.dark {
+      background: #0c1110;
+      color: #f2f5f3;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+
+    :root {
+      --green: #19765f;
+      --green-dark: #0f5544;
+      --black: #101714;
+      --white: #ffffff;
+      --gray: #66716c;
+      --light: #f4f6f3;
+      --border: rgba(16, 23, 20, 0.12);
+      --card: #ffffff;
+    }
+
+    body.dark {
+      --black: #f2f5f3;
+      --white: #111716;
+      --gray: #aeb8b4;
+      --light: #0c1110;
+      --border: rgba(255,255,255,0.12);
+      --card: #151c1a;
+    }
+
+
+    /* =====================================================
+       LOADING SCREEN
+    ===================================================== */
+
+    #loader {
+      position: fixed;
+      inset: 0;
+
+      background: #0d1714;
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 9999;
+
+      transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
+    }
+
+    #loader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-content {
+      text-align: center;
+    }
+
+    .loader-ring {
+      width: 55px;
+      height: 55px;
+
+      border: 3px solid rgba(255,255,255,0.2);
+      border-top-color: #40a98b;
+
+      border-radius: 50%;
+
+      animation:
+        spin 1s linear infinite;
+
+      margin: 0 auto 20px;
+    }
+
+    .loader-content p {
+      letter-spacing: 3px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      height: 80px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 6%;
+
+      background: rgba(244,246,243,0.88);
+
+      backdrop-filter: blur(15px);
+
+      border-bottom:
+        1px solid var(--border);
+
+      z-index: 1000;
+    }
+
+    body.dark .navbar {
+      background: rgba(12,17,16,0.88);
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+
+      width: 0;
+      height: 2px;
+
+      background: var(--green);
+
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-btn,
+    .menu-btn {
+      width: 42px;
+      height: 42px;
+
+      border: 1px solid var(--border);
+      background: transparent;
+
+      border-radius: 50%;
+
+      cursor: pointer;
+
+      color: var(--black);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-btn {
+      display: none;
+      border-radius: 8px;
+      font-size: 20px;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      min-height: 100vh;
+
+      padding:
+        150px 8% 90px;
+
+      display: grid;
+
+      grid-template-columns:
+        1.15fr 0.85fr;
+
+      align-items: center;
+
+      gap: 70px;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 430px;
+      height: 430px;
+
+      border-radius: 50%;
+
+      background: rgba(42,140,110,0.10);
+
+      right: 12%;
+      top: 17%;
+
+      filter: blur(2px);
+
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: var(--green);
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size:
+        clamp(65px, 8vw, 130px);
+
+      line-height: 0.88;
+
+      letter-spacing: -7px;
+
+      margin-bottom: 35px;
+    }
+
+    .hero h1 span {
+      color: var(--green);
+    }
+
+    .hero-description {
+      max-width: 720px;
+
+      color: var(--gray);
+
+      font-size: 18px;
+
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 16px 25px;
+
+      border: 1px solid var(--black);
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.5px;
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--black);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .btn-primary:hover {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+    }
+
+    .hero-photo-area {
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 480px;
+
+      z-index: 2;
+    }
+
+    /* =====================================================
+       CIRCULAR PROFILE PHOTO
+    ===================================================== */
+
+    .profile-photo {
+      width: 390px;
+      height: 390px;
+
+      border-radius: 50%;
+
+      overflow: hidden;
+
+      position: relative;
+
+      cursor: pointer;
+
+      border:
+        8px solid rgba(255,255,255,0.92);
+
+      box-shadow:
+        0 30px 70px rgba(0,0,0,0.18),
+        0 0 0 28px rgba(29,115,93,0.08);
+
+      animation:
+        floatingPhoto 5s ease-in-out infinite;
+
+      transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      object-position: center 25%;
+
+      display: block;
+
+      transition:
+        transform 0.7s ease;
+    }
+
+    .profile-photo:hover {
+      transform:
+        translateY(-12px)
+        scale(1.04);
+
+      box-shadow:
+        0 40px 90px rgba(0,0,0,0.25),
+        0 0 0 35px rgba(29,115,93,0.10);
+    }
+
+    .profile-photo:hover img {
+      transform: scale(1.08);
+    }
+
+    .photo-hint {
+      position: absolute;
+
+      bottom: 25px;
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      background:
+        rgba(0,0,0,0.72);
+
+      color: white;
+
+      padding: 8px 14px;
+
+      border-radius: 30px;
+
+      font-size: 11px;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+      opacity: 0;
+
+      transition:
+        opacity 0.3s ease;
+    }
+
+    .profile-photo:hover .photo-hint {
+      opacity: 1;
+    }
+
+    @keyframes floatingPhoto {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+
+    }
+
+
+    /* =====================================================
+       PHOTO POPUP
+    ===================================================== */
+
+    .photo-modal {
+      position: fixed;
+
+      inset: 0;
+
+      background:
+        rgba(5,10,8,0.88);
+
+      backdrop-filter:
+        blur(12px);
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 30px;
+
+      z-index: 5000;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+    }
+
+    .photo-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      position: relative;
+
+      max-width: 850px;
+      width: 100%;
+
+      text-align: center;
+
+      transform:
+        scale(0.85)
+        translateY(30px);
+
+      transition:
+        transform 0.45s ease;
+    }
+
+    .photo-modal.active .modal-content {
+      transform:
+        scale(1)
+        translateY(0);
+    }
+
+    .modal-content img {
+      width: min(70vw, 600px);
+      height: min(70vw, 600px);
+
+      object-fit: cover;
+
+      object-position: center 25%;
+
+      border-radius: 50%;
+
+      border: 8px solid white;
+
+      box-shadow:
+        0 30px 100px rgba(0,0,0,0.5);
+    }
+
+    .modal-content h3 {
+      color: white;
+
+      font-size: 28px;
+
+      margin-top: 25px;
+    }
+
+    .modal-content p {
+      color: #b9c3bf;
+
+      margin-top: 5px;
+    }
+
+    .close-modal {
+      position: absolute;
+
+      top: -20px;
+      right: 0;
+
+      width: 45px;
+      height: 45px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(255,255,255,0.3);
+
+      background:
+        rgba(255,255,255,0.1);
+
+      color: white;
+
+      cursor: pointer;
+
+      font-size: 25px;
+    }
+
+
+    /* =====================================================
+       GENERAL SECTION
+    ===================================================== */
+
+    .section {
+      padding: 120px 8%;
+
+      border-top:
+        1px solid var(--border);
+    }
+
+    .section-header {
+      display: grid;
+
+      grid-template-columns:
+        0.4fr 1fr;
+
+      gap: 60px;
+
+      margin-bottom: 60px;
+    }
+
+    .section-number {
+      color: var(--green);
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+    }
+
+    .section-title {
+      font-size:
+        clamp(45px, 6vw, 85px);
+
+      line-height: 0.95;
+
+      letter-spacing: -4px;
+    }
+
+    .section-intro {
+      color: var(--gray);
+
+      font-size: 18px;
+
+      max-width: 750px;
+
+      margin-top: 25px;
+    }
+
+
+    /* =====================================================
+       ABOUT
+    ===================================================== */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 70px;
+    }
+
+    .about-text {
+      font-size: 21px;
+
+      line-height: 1.8;
+    }
+
+    .about-text strong {
+      color: var(--green);
+    }
+
+    .about-facts {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 15px;
+    }
+
+    .fact {
+      border:
+        1px solid var(--border);
+
+      background: var(--card);
+
+      padding: 25px;
+    }
+
+    .fact small {
+      display: block;
+
+      color: var(--gray);
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+
+      font-size: 10px;
+
+      margin-bottom: 8px;
+    }
+
+    .fact strong {
+      font-size: 17px;
+    }
+
+
+    /* =====================================================
+       SKILLS
+    ===================================================== */
+
+    .skills-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 30px;
+
+      border:
+        1px solid var(--border);
+
+      background: var(--card);
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        var(--green);
+    }
+
+    .skill-number {
+      color: var(--green);
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      margin-bottom: 20px;
+    }
+
+    .skill-card h3 {
+      font-size: 21px;
+
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: var(--gray);
+
+      font-size: 14px;
+    }
+
+
+    /* =====================================================
+       EXPERIENCE
+    ===================================================== */
+
+    .timeline {
+      border-top:
+        1px solid var(--border);
+    }
+
+    .timeline-item {
+      display: grid;
+
+      grid-template-columns:
+        0.35fr 1fr;
+
+      gap: 50px;
+
+      padding: 45px 0;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .timeline-date {
+      color: var(--green);
+
+      font-weight: 800;
+
+      font-size: 14px;
+    }
+
+    .timeline-item h3 {
+      font-size: 27px;
+
+      margin-bottom: 5px;
+    }
+
+    .timeline-item h4 {
+      color: var(--gray);
+
+      font-weight: 500;
+
+      margin-bottom: 15px;
+    }
+
+    .timeline-item p {
+      color: var(--gray);
+
+      max-width: 800px;
+    }
+
+
+    /* =====================================================
+       TECHNICAL WORK
+    ===================================================== */
+
+    .work-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 20px;
+    }
+
+    .work-card {
+      min-height: 290px;
+
+      padding: 35px;
+
+      border:
+        1px solid var(--border);
+
+      background: var(--card);
+
+      position: relative;
+
+      overflow: hidden;
+
+      transition:
+        transform 0.35s ease;
+    }
+
+    .work-card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 160px;
+      height: 160px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(29,115,93,0.08);
+
+      right: -60px;
+      bottom: -60px;
+    }
+
+    .work-card:hover {
+      transform:
+        translateY(-8px);
+    }
+
+    .work-tag {
+      color: var(--green);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+    }
+
+    .work-card h3 {
+      font-size: 27px;
+
+      margin:
+        25px 0 12px;
+    }
+
+    .work-card p {
+      color: var(--gray);
+
+      max-width: 550px;
+    }
+
+
+    /* =====================================================
+       EDUCATION
+    ===================================================== */
+
+    .education-list {
+      display: grid;
+
+      gap: 15px;
+    }
+
+    .education-item {
+      display: grid;
+
+      grid-template-columns:
+        180px 1fr;
+
+      gap: 30px;
+
+      padding: 30px;
+
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+    }
+
+    .education-year {
+      color: var(--green);
+
+      font-weight: 800;
+    }
+
+    .education-item h3 {
+      margin-bottom: 5px;
+    }
+
+    .education-item p {
+      color: var(--gray);
+    }
+
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
+
+    .contact-section {
+      background:
+        #0d1714;
+
+      color: white;
+    }
+
+    .contact-section .section-number {
+      color: #58b99a;
+    }
+
+    .contact-section .section-title {
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 70px;
+    }
+
+    .contact-text {
+      font-size: 22px;
+
+      color: #b8c4bf;
+    }
+
+    .contact-links {
+      display: grid;
+
+      gap: 15px;
+    }
+
+    .contact-link {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding: 20px 0;
+
+      border-bottom:
+        1px solid rgba(255,255,255,0.14);
+
+      color: white;
+
+      transition:
+        color 0.3s ease;
+    }
+
+    .contact-link:hover {
+      color: #58b99a;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      background: #0d1714;
+
+      color: #8e9a95;
+
+      border-top:
+        1px solid rgba(255,255,255,0.1);
+
+      padding: 30px 8%;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      font-size: 12px;
+    }
+
+
+    /* =====================================================
+       BACK TO TOP
+    ===================================================== */
+
+    #backTop {
+      position: fixed;
+
+      right: 25px;
+      bottom: 25px;
+
+      width: 48px;
+      height: 48px;
+
+      border-radius: 50%;
+
+      border: none;
+
+      background:
+        var(--green);
+
+      color: white;
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transform:
+        translateY(20px);
+
+      transition:
+        all 0.3s ease;
+
+      z-index: 900;
+    }
+
+    #backTop.show {
+      opacity: 1;
+
+      visibility: visible;
+
+      transform:
+        translateY(0);
+    }
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    .reveal {
+      opacity: 0;
+
+      transform:
+        translateY(35px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        position: fixed;
+
+        top: 80px;
+        left: 0;
+        right: 0;
+
+        background:
+          var(--light);
+
+        border-bottom:
+          1px solid var(--border);
+
+        display: none;
+
+        flex-direction: column;
+
+        padding: 30px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: flex;
+      }
+
+      .hero {
+        grid-template-columns:
+          1fr;
+
+        text-align: center;
+
+        padding-top: 140px;
+      }
+
+      .hero-content {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+      }
+
+      .hero-photo-area {
+        min-height: 420px;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .section-header {
+        grid-template-columns:
+          1fr;
+      }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+      .navbar {
+        padding: 0 5%;
+      }
+
+      .hero {
+        padding:
+          130px 6% 70px;
+      }
+
+      .hero h1 {
+        font-size: 60px;
+
+        letter-spacing:
+          -4px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .profile-photo {
+        width: 280px;
+        height: 280px;
+      }
+
+      .hero-photo-area {
+        min-height: 330px;
+      }
+
+      .section {
+        padding:
+          80px 6%;
+      }
+
+      .section-title {
+        font-size: 48px;
+      }
+
+      .skills-grid,
+      .work-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .about-facts {
+        grid-template-columns:
+          1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns:
+          1fr;
+
+        gap: 10px;
+      }
+
+      .education-item {
+        grid-template-columns:
+          1fr;
+
+        gap: 8px;
+      }
+
+      .contact-grid {
+        gap: 40px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+
+      .modal-content img {
+        width: 80vw;
+        height: 80vw;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       LOADER
+  ====================================================== -->
+
+  <div id="loader">
+
+    <div class="loader-content">
+
+      <div class="loader-ring"></div>
+
+      <p>
+        Netra Prasad Parajuli
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       NAVIGATION
+  ====================================================== -->
+
+  <header class="navbar">
+
+    <a href="#home" class="logo">
+      NP<span>.</span>
+    </a>
+
+
+    <nav class="nav-links" id="navLinks">
+
       <a href="#home">Home</a>
+
       <a href="#about">About</a>
+
       <a href="#skills">Skills</a>
+
       <a href="#experience">Experience</a>
+
       <a href="#work">Technical Work</a>
+
       <a href="#education">Education</a>
+
       <a href="#contact">Contact</a>
+
     </nav>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◐</button>
+
+
+    <div class="nav-buttons">
+
+      <button
+        class="theme-btn"
+        id="themeBtn"
+        aria-label="Toggle dark mode">
+
+        ◐
+
+      </button>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu">
+
+        ☰
+
+      </button>
+
+    </div>
+
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="grid-bg"></div>
-      <div class="hero-orb orb-one"></div>
-      <div class="hero-orb orb-two"></div>
+
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <main id="home">
+
+    <section class="hero">
+
+
       <div class="hero-content reveal">
-        <p class="eyebrow">CIVIL SUB-OVERSEER • TECHNICAL PROFESSIONAL</p>
-        <h1>Netra Prasad<br><span>Parajuli</span></h1>
-        <p class="hero-text">Practical experience in civil construction, field supervision, technical drafting, water supply & sanitation activities, and infrastructure-related field work.</p>
+
+        <div class="eyebrow">
+
+          Civil Sub-Overseer
+          &nbsp;•&nbsp;
+          Technical Professional
+
+        </div>
+
+
+        <h1>
+
+          Netra Prasad
+
+          <br>
+
+          <span>Parajuli</span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+          Practical experience in civil construction,
+          field supervision, technical drafting,
+          water supply & sanitation activities,
+          and infrastructure-related field work.
+
+        </p>
+
+
         <div class="hero-buttons">
-          <a class="btn primary" href="#experience">Explore Experience <span>→</span></a>
-          <a class="btn ghost" href="#about">About Me</a>
+
+          <a
+            href="#experience"
+            class="btn btn-primary">
+
+            Explore Experience →
+            
+          </a>
+
+
+          <a
+            href="#about"
+            class="btn btn-secondary">
+
+            About Me
+
+          </a>
+
         </div>
+
       </div>
-      <div class="hero-card reveal">
-        
-         <div class="profile-placeholder">
-  <img src="images/netra.jpg" alt="Netra Prasad Parajuli">
-</div>
-          
-       </div>
+
+
+
+      <!-- =================================================
+           PROFILE PHOTO
+      ================================================== -->
+
+      <div class="hero-photo-area reveal">
+
+        <div
+          class="profile-photo"
+          id="profilePhoto"
+          title="Click to enlarge">
+
+          <img
+            src="images/netra.jpg"
+            alt="Netra Prasad Parajuli">
+
+          <div class="photo-hint">
+
+            Click to view
+
+          </div>
+
+        </div>
+
       </div>
-      <div class="scroll-cue">SCROLL <span>↓</span></div>
+
+
     </section>
 
-    <section class="stats-section">
-      <div class="stat"><strong>9+</strong><span>Professional roles</span></div>
-      <div class="stat"><strong>25+</strong><span>Years of career journey</span></div>
-      <div class="stat"><strong>3</strong><span>Technical trainings</span></div>
-      <div class="stat"><strong>6+</strong><span>Areas of technical work</span></div>
-    </section>
 
-    <section class="section" id="about">
-      <div class="section-label">01 — ABOUT</div>
-      <div class="two-col">
+
+    <!-- =================================================
+         ABOUT
+    ================================================== -->
+
+    <section
+      class="section"
+      id="about">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          01 / ABOUT
+        </div>
+
         <div>
-          <h2>Built through<br><span>practical experience.</span></h2>
+
+          <h2 class="section-title">
+            Practical.
+            <br>
+            Technical.
+            <br>
+            Field-focused.
+          </h2>
+
+          <p class="section-intro">
+
+            A professional profile built around
+            practical technical experience,
+            civil construction activities,
+            supervision, drafting and
+            infrastructure-related work.
+
+          </p>
+
         </div>
-        <div>
-          <p class="lead">Iam a Nepalese Civil Sub-Overseer and technical professional with extensive practical experience across civil construction, field supervision, technical drafting, water supply and sanitation activities, community technical work, and field operations.</p>
-          <p>With a Civil Sub-Overseer qualification from CTEVT and additional training in 2D AutoCAD, basic foreman skills, and computer applications, his career combines technical knowledge with hands-on field experience.</p>
-          <p>His professional journey has included engineering consultancies, local government, development organizations, construction companies, and field-based assignments across Nepal.</p>
-        </div>
+
       </div>
+
+
+
+      <div class="about-grid reveal">
+
+        <div class="about-text">
+
+          Netra Prasad Parajuli is a
+          <strong>Civil Sub-Overseer</strong>
+          and technical professional with
+          practical exposure to civil construction,
+          field supervision, technical drafting,
+          water supply and sanitation activities,
+          and infrastructure-related field work.
+
+          <br><br>
+
+          His professional experience combines
+          technical knowledge with practical
+          field responsibilities, coordination
+          and project-related activities.
+
+        </div>
+
+
+        <div class="about-facts">
+
+          <div class="fact">
+
+            <small>
+              Profession
+            </small>
+
+            <strong>
+              Civil Sub-Overseer
+            </strong>
+
+          </div>
+
+
+          <div class="fact">
+
+            <small>
+              Professional Focus
+            </small>
+
+            <strong>
+              Civil & Infrastructure
+            </strong>
+
+          </div>
+
+
+          <div class="fact">
+
+            <small>
+              Core Approach
+            </small>
+
+            <strong>
+              Practical Field Work
+            </strong>
+
+          </div>
+
+
+          <div class="fact">
+
+            <small>
+              Website
+            </small>
+
+            <strong>
+              netraprasadparajuli.com.np
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <section class="section dark-section" id="skills">
-      <div class="section-label">02 — TECHNICAL PROFILE</div>
-      <div class="section-heading">
-        <h2>Skills & <span>capabilities</span></h2>
-        <p>Experience developed through years of practical technical and field assignments.</p>
+
+
+    <!-- =================================================
+         SKILLS
+    ================================================== -->
+
+    <section
+      class="section"
+      id="skills">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          02 / SKILLS
+        </div>
+
+        <div>
+
+          <h2 class="section-title">
+            Technical
+            <br>
+            capabilities.
+          </h2>
+
+          <p class="section-intro">
+
+            Areas of technical knowledge and
+            practical capability relevant to
+            civil and infrastructure work.
+
+          </p>
+
+        </div>
+
       </div>
+
+
       <div class="skills-grid">
-        <div class="skill-card"><span>01</span><h3>Civil Supervision</h3><p>Practical construction and field supervision experience.</p></div>
-        <div class="skill-card"><span>02</span><h3>Technical Drafting</h3><p>Civil drafting experience supported by 2D AutoCAD training.</p></div>
-        <div class="skill-card"><span>03</span><h3>Water & Sanitation</h3><p>Community technical work connected with water supply and sanitation.</p></div>
-        <div class="skill-card"><span>04</span><h3>Field Operations</h3><p>Hands-on experience across municipalities, districts and rural areas.</p></div>
-        <div class="skill-card"><span>05</span><h3>Construction Work</h3><p>Supervision experience including overhead tank-related work.</p></div>
-        <div class="skill-card"><span>06</span><h3>Community Technical Work</h3><p>Development and implementation phase field involvement.</p></div>
+
+
+        <div class="skill-card reveal">
+
+          <div class="skill-number">
+            01
+          </div>
+
+          <h3>
+            Civil Construction
+          </h3>
+
+          <p>
+            Practical involvement in
+            construction-related activities,
+            field execution and technical work.
+          </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+          <div class="skill-number">
+            02
+          </div>
+
+          <h3>
+            Field Supervision
+          </h3>
+
+          <p>
+            Monitoring field activities,
+            coordination and practical
+            site responsibilities.
+          </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+          <div class="skill-number">
+            03
+          </div>
+
+          <h3>
+            Technical Drafting
+          </h3>
+
+          <p>
+            Technical drawing and drafting
+            related to civil engineering
+            and construction activities.
+          </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+          <div class="skill-number">
+            04
+          </div>
+
+          <h3>
+            Water Supply
+          </h3>
+
+          <p>
+            Technical exposure to water
+            supply-related infrastructure
+            and field activities.
+          </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+          <div class="skill-number">
+            05
+          </div>
+
+          <h3>
+            Sanitation
+          </h3>
+
+          <p>
+            Practical technical work related
+            to sanitation and infrastructure
+            activities.
+          </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+          <div class="skill-number">
+            06
+          </div>
+
+          <h3>
+            Infrastructure Work
+          </h3>
+
+          <p>
+            Field-oriented technical work
+            associated with infrastructure
+            development and maintenance.
+          </p>
+
+        </div>
+
+
       </div>
+
     </section>
 
-    <section class="section" id="experience">
-      <div class="section-label">03 — EXPERIENCE</div>
-      <div class="section-heading">
-        <h2>A career across<br><span>technical fields.</span></h2>
-        <p>Selected professional experience from the supplied curriculum vitae.</p>
+
+
+    <!-- =================================================
+         EXPERIENCE
+    ================================================== -->
+
+    <section
+      class="section"
+      id="experience">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          03 / EXPERIENCE
+        </div>
+
+        <div>
+
+          <h2 class="section-title">
+            Professional
+            <br>
+            experience.
+          </h2>
+
+          <p class="section-intro">
+
+            A career centered around practical
+            technical responsibilities and
+            infrastructure-related work.
+
+          </p>
+
+        </div>
+
       </div>
+
 
       <div class="timeline">
-        <article class="timeline-item">
-          <div class="year">2081–Present</div>
-          <div class="timeline-content"><h3>Welldone Advertisement Private Limited</h3><p class="role">Sales Representative</p><p>Collection of advertisement tax across Ratnanagar Municipality, Khaireni Municipality, Gaindakot Municipality, Abukhaireni Rural Municipality, Bandipur Rural Municipality and other areas.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="year">2080–2081</div>
-          <div class="timeline-content"><h3>Pranish Construction</h3><p class="role">Supervisor</p><p>Supervision of advertisement tax collection activities in Bharatpur Metropolitan City.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="year">2075–2080</div>
-          <div class="timeline-content"><h3>Kripa Construction</h3><p class="role">Supervisor — Overhead Tank</p><p>Supervision of overhead tank-related work in Chitwan and Nawalpur.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="year">2072–2073</div>
-          <div class="timeline-content"><h3>MDI Nepal, Makwanpur</h3><p class="role">Technician</p><p>Technical field responsibilities in Makwanpur.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="year">2069</div>
-          <div class="timeline-content"><h3>World Food Programme (SAPsRO Nepal)</h3><p class="role">Field Technician</p><p>Field technical assignment in Bajura district.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="year">2067–2068</div>
-          <div class="timeline-content"><h3>Rainbow Engineering Consultancy (Pvt.) Ltd.</h3><p class="role">Civil Draftsman</p><p>Worked as a civil draftsman in an engineering consultancy environment.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="year">2064–2067</div>
-          <div class="timeline-content"><h3>NESCORE, Bardaghat, Nawalparasi</h3><p class="role">Community Technician</p><p>Worked in association with water supply and sanitation activities during development and implementation phases.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="year">2061–2062</div>
-          <div class="timeline-content"><h3>Bharatpur Municipality</h3><p class="role">Field Supervisor</p><p>Field supervision responsibilities in Bharatpur.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="year">2058–2059</div>
-          <div class="timeline-content"><h3>Universal Engineering</h3><p class="role">Technical Experience</p><p>Early professional experience in an engineering environment.</p></div>
-        </article>
+
+
+        <div class="timeline-item reveal">
+
+          <div class="timeline-date">
+            PROFESSIONAL
+          </div>
+
+          <div>
+
+            <h3>
+              Civil Sub-Overseer
+            </h3>
+
+            <h4>
+              Technical / Civil Infrastructure
+            </h4>
+
+            <p>
+
+              Practical responsibilities involving
+              civil construction, field supervision,
+              technical activities, coordination
+              and infrastructure-related work.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+          <div class="timeline-date">
+            FIELD WORK
+          </div>
+
+          <div>
+
+            <h3>
+              Construction & Site Activities
+            </h3>
+
+            <h4>
+              Field-oriented Technical Work
+            </h4>
+
+            <p>
+
+              Exposure to practical field conditions,
+              construction activities and technical
+              supervision responsibilities.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+          <div class="timeline-date">
+            TECHNICAL
+          </div>
+
+          <div>
+
+            <h3>
+              Water Supply & Sanitation
+            </h3>
+
+            <h4>
+              Infrastructure-related Activities
+            </h4>
+
+            <p>
+
+              Technical involvement in activities
+              related to water supply, sanitation
+              and supporting infrastructure work.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
       </div>
+
     </section>
 
-    <section class="section dark-section" id="work">
-      <div class="section-label">04 — TECHNICAL WORK</div>
-      <div class="section-heading">
-        <h2>Work shaped by<br><span>the field.</span></h2>
-      </div>
-      <div class="work-grid">
-        <article class="work-card"><div class="work-number">01</div><h3>Overhead Tank Supervision</h3><p>Construction supervision experience in Chitwan and Nawalpur.</p><div class="tag">CONSTRUCTION</div></article>
-        <article class="work-card"><div class="work-number">02</div><h3>Water Supply & Sanitation</h3><p>Community technical involvement in development and implementation activities.</p><div class="tag">COMMUNITY TECHNICAL</div></article>
-        <article class="work-card"><div class="work-number">03</div><h3>Civil Drafting</h3><p>Professional civil drafting work at an engineering consultancy.</p><div class="tag">2D / CAD</div></article>
-        <article class="work-card"><div class="work-number">04</div><h3>Field Technical Operations</h3><p>Technical and field assignments across multiple districts and municipalities.</p><div class="tag">FIELD WORK</div></article>
-      </div>
-    </section>
 
-    <section class="section" id="education">
-      <div class="section-label">05 — EDUCATION & TRAINING</div>
-      <div class="education-grid">
-        <article class="edu-card"><span>2058 B.S.</span><h3>Civil Sub-Overseer</h3><p>TSLC, CTEVT — Nepal Polytechnic Institute Limited, Bharatpur-11, Bhojad, Chitwan.</p></article>
-        <article class="edu-card"><span>2055 B.S.</span><h3>I.Com.</h3><p>Sapatagadaki Multiple Campus, Tribhuvan University.</p></article>
-        <article class="edu-card"><span>2052 B.S.</span><h3>S.L.C.</h3><p>Gautam English Boarding School, Birgunj — Board of Nepal.</p></article>
-        <article class="edu-card"><span>TRAINING</span><h3>2D AutoCAD</h3><p>Technical drafting training.</p></article>
-        <article class="edu-card"><span>TRAINING</span><h3>Basic Foreman Training</h3><p>Community Technicians training, July 30–September 3, 2009, organized by Rural Water Supply and Sanitation Fund Development Board.</p></article>
-        <article class="edu-card"><span>TRAINING</span><h3>Computer Basic Course</h3><p>Basic computer training.</p></article>
-      </div>
-    </section>
 
-    <section class="section quote-section">
-      <div class="quote-mark">“</div>
-      <blockquote>Experience is built where technical knowledge meets practical work.</blockquote>
-      <p>— Netra Prasad Parajuli</p>
-    </section>
+    <!-- =================================================
+         TECHNICAL WORK
+    ================================================== -->
 
-    <section class="section contact-section" id="contact">
-      <div class="section-label">06 — CONTACT</div>
-      <div class="contact-wrap">
+    <section
+      class="section"
+      id="work">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          04 / TECHNICAL WORK
+        </div>
+
         <div>
-          <h2>Let's connect.</h2>
-          <p>For professional enquiries, technical discussions, or information about his work and experience.</p>
+
+          <h2 class="section-title">
+            Work that
+            <br>
+            matters.
+          </h2>
+
+          <p class="section-intro">
+
+            Selected areas representing practical
+            technical and infrastructure-related
+            work.
+
+          </p>
+
         </div>
-        <div class="contact-details">
-          <div><span>LOCATION</span><strong>Bharatpur-11, Bhojad, Chitwan, Nepal</strong></div>
-          <div><span>LANGUAGES</span><strong>Nepali · Hindi · English</strong></div>
-          <div><span>PHONE</span><strong>+977 9845157390</strong></div>
-        </div>
+
       </div>
+
+
+      <div class="work-grid">
+
+
+        <article class="work-card reveal">
+
+          <div class="work-tag">
+            CIVIL
+          </div>
+
+          <h3>
+            Civil Construction
+          </h3>
+
+          <p>
+
+            Practical technical work associated
+            with construction activities,
+            site execution and civil infrastructure.
+
+          </p>
+
+        </article>
+
+
+        <article class="work-card reveal">
+
+          <div class="work-tag">
+            SUPERVISION
+          </div>
+
+          <h3>
+            Field Supervision
+          </h3>
+
+          <p>
+
+            Field-based monitoring, coordination
+            and supervision of technical
+            construction activities.
+
+          </p>
+
+        </article>
+
+
+        <article class="work-card reveal">
+
+          <div class="work-tag">
+            DRAFTING
+          </div>
+
+          <h3>
+            Technical Drafting
+          </h3>
+
+          <p>
+
+            Technical drawing and documentation
+            supporting civil and infrastructure
+            work.
+
+          </p>
+
+        </article>
+
+
+        <article class="work-card reveal">
+
+          <div class="work-tag">
+            INFRASTRUCTURE
+          </div>
+
+          <h3>
+            Water & Sanitation
+          </h3>
+
+          <p>
+
+            Technical work associated with
+            water supply, sanitation and
+            infrastructure-related activities.
+
+          </p>
+
+        </article>
+
+
+      </div>
+
     </section>
+
+
+
+    <!-- =================================================
+         EDUCATION
+    ================================================== -->
+
+    <section
+      class="section"
+      id="education">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          05 / EDUCATION
+        </div>
+
+        <div>
+
+          <h2 class="section-title">
+            Education &
+            <br>
+            training.
+          </h2>
+
+          <p class="section-intro">
+
+            Academic and professional learning
+            supporting practical technical work.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="education-list">
+
+
+        <div class="education-item reveal">
+
+          <div class="education-year">
+            TECHNICAL
+          </div>
+
+          <div>
+
+            <h3>
+              Civil Engineering / Technical Education
+            </h3>
+
+            <p>
+              Technical education relevant to
+              civil construction and infrastructure work.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="education-item reveal">
+
+          <div class="education-year">
+            TRAINING
+          </div>
+
+          <div>
+
+            <h3>
+              Professional & Technical Training
+            </h3>
+
+            <p>
+              Practical learning and technical
+              development supporting field responsibilities.
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CONTACT
+    ================================================== -->
+
+    <section
+      class="section contact-section"
+      id="contact">
+
+      <div class="section-header reveal">
+
+        <div class="section-number">
+          06 / CONTACT
+        </div>
+
+        <div>
+
+          <h2 class="section-title">
+            Let's connect.
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="contact-grid reveal">
+
+
+        <div>
+
+          <p class="contact-text">
+
+            For professional communication,
+            technical work and infrastructure-related
+            opportunities, get in touch.
+
+          </p>
+
+        </div>
+
+
+        <div class="contact-links">
+
+
+          <a
+            href="mailto:contact@netraprasadparajuli.com.np"
+            class="contact-link">
+
+            <span>
+              Email
+            </span>
+
+            <span>
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="https://netraprasadparajuli.com.np"
+            class="contact-link">
+
+            <span>
+              Website
+            </span>
+
+            <span>
+              →
+            </span>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
 
+
+
+  <!-- =====================================================
+       PHOTO POPUP
+  ====================================================== -->
+
+  <div
+    class="photo-modal"
+    id="photoModal"
+    aria-hidden="true">
+
+
+    <div class="modal-content">
+
+
+      <button
+        class="close-modal"
+        id="closeModal"
+        aria-label="Close photo">
+
+        ×
+
+      </button>
+
+
+      <img
+        src="images/netra.jpg"
+        alt="Netra Prasad Parajuli">
+
+
+      <h3>
+        Netra Prasad Parajuli
+      </h3>
+
+
+      <p>
+        Civil Sub-Overseer · Technical Professional
+      </p>
+
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
   <footer>
-    <div class="footer-brand">NETRA PRASAD <span>PARAJULI</span></div>
-    <p>© <span id="year"></span> Netra Prasad Parajuli. All rights reserved.</p>
-    <a href="#home">Back to top ↑</a>
+
+    <div>
+      © <span id="year"></span>
+      Netra Prasad Parajuli
+    </div>
+
+    <div>
+      netraprasadparajuli.com.np
+    </div>
+
   </footer>
 
-  <button class="top-button" id="topButton">↑</button>
-  <script src="js/script.js"></script>
+
+
+  <!-- =====================================================
+       BACK TO TOP
+  ====================================================== -->
+
+  <button
+    id="backTop"
+    aria-label="Back to top">
+
+    ↑
+
+  </button>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    /* =====================================================
+       LOADER
+    ===================================================== */
+
+    window.addEventListener("load", function () {
+
+      setTimeout(function () {
+
+        document
+          .getElementById("loader")
+          .classList.add("hide");
+
+      }, 700);
+
+    });
+
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", function () {
+
+      navLinks.classList.toggle("open");
+
+    });
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+          navLinks.classList.remove("open");
+
+        });
+
+      });
+
+
+
+    /* =====================================================
+       DARK / LIGHT MODE
+    ===================================================== */
+
+    const themeBtn =
+      document.getElementById("themeBtn");
+
+
+    themeBtn.addEventListener("click", function () {
+
+      document.body.classList.toggle("dark");
+
+      if (
+        document.body.classList.contains("dark")
+      ) {
+
+        themeBtn.textContent = "☀";
+
+      } else {
+
+        themeBtn.textContent = "◐";
+
+      }
+
+    });
+
+
+
+    /* =====================================================
+       PROFILE PHOTO POPUP
+    ===================================================== */
+
+    const profilePhoto =
+      document.getElementById("profilePhoto");
+
+    const photoModal =
+      document.getElementById("photoModal");
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+
+    function openPhotoModal() {
+
+      photoModal.classList.add("active");
+
+      photoModal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closePhotoModal() {
+
+      photoModal.classList.remove("active");
+
+      photoModal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    profilePhoto.addEventListener(
+      "click",
+      openPhotoModal
+    );
+
+
+    closeModal.addEventListener(
+      "click",
+      closePhotoModal
+    );
+
+
+    photoModal.addEventListener(
+      "click",
+      function (event) {
+
+        if (event.target === photoModal) {
+
+          closePhotoModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (event.key === "Escape") {
+
+          closePhotoModal();
+
+        }
+
+      }
+    );
+
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ====================================================== */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+      new IntersectionObserver(
+
+        function (entries, observer) {
+
+          entries.forEach(function (entry) {
+
+            if (entry.isIntersecting) {
+
+              entry.target
+                .classList
+                .add("visible");
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+
+        {
+          threshold: 0.12
+        }
+
+      );
+
+
+    revealElements.forEach(
+      function (element) {
+
+        revealObserver.observe(element);
+
+      }
+    );
+
+
+
+    /* =====================================================
+       BACK TO TOP
+    ====================================================== */
+
+    const backTop =
+      document.getElementById("backTop");
+
+
+    window.addEventListener(
+      "scroll",
+      function () {
+
+        if (window.scrollY > 500) {
+
+          backTop.classList.add("show");
+
+        } else {
+
+          backTop.classList.remove("show");
+
+        }
+
+      }
+    );
+
+
+    backTop.addEventListener(
+      "click",
+      function () {
+
+        window.scrollTo({
+
+          top: 0,
+
+          behavior: "smooth"
+
+        });
+
+      }
+    );
+
+
+
+    /* =====================================================
+       CURRENT YEAR
+    ====================================================== */
+
+    document.getElementById("year")
+      .textContent =
+      new Date().getFullYear();
+
+  </script>
+
+
 </body>
 </html>
